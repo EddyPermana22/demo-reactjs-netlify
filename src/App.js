@@ -1,10 +1,21 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
       <header className='App-header'>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/lorem'>Lorem</Link>
+          </li>
+          <li>
+            <Link to='/lost'>Lost Page</Link>
+          </li>
+        </ul>
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/lorem' element={<LoremPage />} />
@@ -42,7 +53,12 @@ function LoremPage() {
 }
 
 function Page404() {
-  return <h1>ERROR 404, Page Not Found!</h1>;
+  return (
+    <>
+      <h1>ERROR 404, Page Not Found!</h1>
+      <Link to='/'>Back to Home</Link>
+    </>
+  );
 }
 
 export default App;
